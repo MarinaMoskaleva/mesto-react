@@ -40,7 +40,7 @@ function App() {
       <Header />
       <Main onEditProfile={handleEditProfileClick} onAddPlace={handleAddPlaceClick} onEditAvatar={handleEditAvatarClick} onCardClick={handleCardClick}/>
       <Footer />
-      <PopupWithForm name='edit-profile' title='Редактировать профиль' isOpen={isEditProfilePopupOpen} onClose={closeAllPopups} textButton='Сохранить'>
+      <PopupWithForm name='edit-profile' title='Редактировать профиль' isOpen={isEditProfilePopupOpen} onClose={closeAllPopups}>
         <label className="popup__form-field">
           <input
                 id="name-input"
@@ -66,7 +66,7 @@ function App() {
             <span className="description-input-error popup__error"></span>
           </label>
       </PopupWithForm>
-      <PopupWithForm name='add-place' title='Новое место' isOpen={isAddPlacePopupOpen} onClose={closeAllPopups} textButton='Создать'>
+      <PopupWithForm name='add-place' title='Новое место' isOpen={isAddPlacePopupOpen} onClose={closeAllPopups} buttonText='Создать'>
         <label className="popup__form-field">
           <input
                 id="title-input"
@@ -90,7 +90,7 @@ function App() {
             <span className="url-input-error popup__error"></span>
           </label>
       </PopupWithForm>
-      <PopupWithForm name='edit-avatar' title='Обновить аватар' isOpen={isEditAvatarPopupOpen} onClose={closeAllPopups} textButton='Сохранить'>
+      <PopupWithForm name='edit-avatar' title='Обновить аватар' isOpen={isEditAvatarPopupOpen} onClose={closeAllPopups}>
         <label className="popup__form-field">
           <input
                 id="avatar-input"
