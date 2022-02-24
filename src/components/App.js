@@ -1,4 +1,4 @@
-import React,{ useState } from 'react';
+import React,{ useState, useEffect } from 'react';
 import Header from './Header.js'
 import Main from './Main.js'
 import Footer from './Footer.js'
@@ -19,7 +19,7 @@ function App() {
   const [currentUser, setCurrentUser] = useState({name:'', about:'', avatar:''});
   const [cards, setCards] = useState([]);
 
-  React.useEffect(() => {
+  useEffect(() => {
     api.getUser()
     .then(userData => {
         setCurrentUser(userData);
@@ -35,7 +35,7 @@ function App() {
     .catch((err)=>{
       console.log(err);
     });
-},[]);
+  },[]);
 
   function handleEditAvatarClick() {
     setEditAvatarPopupOpen(true);
