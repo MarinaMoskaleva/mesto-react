@@ -1,7 +1,7 @@
 import React from "react";
 
 function PopupWithForm(props){
-  const {name, title, isOpen, onClose, buttonText='Сохранить'} = props;
+  const {name, title, isOpen, onClose, buttonText='Сохранить', onSubmit} = props;
   return (
     <div className={`popup popup_type_${name} ${isOpen && 'popup_opened'}`}>
       <div className="popup__container">
@@ -9,7 +9,7 @@ function PopupWithForm(props){
         <h2 className="popup__title">{title}</h2>
         <form className="popup__form" name={`${name}`} noValidate>
           {props.children}
-          <button className="popup__button" type="submit">{buttonText}</button>
+          <button className="popup__button" onClick={onSubmit} type="submit">{buttonText}</button>
         </form>
       </div>
     </div>
