@@ -20,21 +20,14 @@ function App() {
   const [cards, setCards] = useState([]);
 
   useEffect(() => {
-    api.getUser()
-    .then(userData => {
-        setCurrentUser(userData);
-    })
-    .catch((err)=>{
-        console.log(err);
-    });
-
-    api.getInitialCards()
-    .then(cardsData => {
+    Promise.all([api.getUser(), api.getInitialCards()])
+    .then(([userData, cardsData])=>{
+      setCurrentUser(userData);
       setCards(cardsData);
     })
     .catch((err)=>{
       console.log(err);
-    });
+    });  
   },[]);
 
   function handleEditAvatarClick() {
